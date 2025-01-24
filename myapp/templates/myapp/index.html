@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Baje Ka Katha</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link rel = "stylesheet" type="text/css" href='{% static 'css/main.css' %}'>
+    </head>
+    <body class="main-page">
+        <section class="hero">
+            <div class="content">
+                <h1>बाजेका कथा</h1>
+                <p>The Culture of Stories, The Story of Culture</p>
+                <a href="{% url 'folkForm' %}" class="button">Tell Your Tales</a> 
+            </div>
+        </section>
+    
+        <nav class="navbar sticky-navbar">
+            <div class="navbar-content">
+                <div class="site-title">
+                    <a href="#">बाजेका कथा</a>
+                </div>
+                <div class="navbar-actions">
+                    {% comment %} <div class="search-container">
+                        <form method="GET" action="{% url 'homepage' %}">
+                            <input type="text" name="search" placeholder="Search stories..." value="{{ request.GET.search }}">
+                            <button type="submit">🔍</button>
+                        </form>
+                    </div> {% endcomment %}
+                    <a href="{% url 'detail' %}" class="more-stories">Explore More Tales</a>
+                    <a href="#newsletter" class="subscribe-button">Subscribe</a>
+                    <a href="{% url 'folkForm' %}" class="tell-tale-button">Tell Your Tale</a>
+                </div>
+            </div>
+        </nav>
+
+    <section class="stories-section" id="stories-section">
+        <h2 class="stories-title">Our Tales</h2>
+        <div class="story-grid">
+            {% for post in posts %}
+            <div class="story-card">
+                <div class="story-image" style="background-image: url('{{ post.image }}');"></div>
+                <div class="story-content">
+                    <h3>{{ post.title }}</h3>
+                    {% comment %} <p>{{ post.content }}</p> {% endcomment %}
+                    <a href="{% url 'tale' post_id=post.id %}" class="read-more">Read</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+<section id="newsletter" class="newsletter-section">
+    <div class="newsletter-content">
+        <h2>Unravel the Threads of Untold Tales</h2>
+        <p>Journey through forgotten legends, whispered myths, and cultural secrets.</p>
+        <form class="newsletter-form" method="POST" action="{% url 'newsletter_signup' %}">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Unlock Hidden Narratives</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section about-us">
+            <h3 class="fotter-heading">About Us</h3>
+            <p>बाजेका कथा is a platform for preserving and sharing Nepali folktales and cultural stories. It allows users to contribute stories in text format and offers newsletters with curated content. Our mission is to celebrate diverse narratives, preserve folktales, and honor traditional wisdom.</p>
+            <p>Nepali folktales carry the essence of cultural values, wisdom, and history. Passed down through generations, these stories reflect the spirit of the Himalayan region, ensuring that Nepali traditions live on for future generations.</p>
+        </div>
+        <div class="footer-section social-connect">
+            <div class="social-media">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.twitter.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 बाजेका कथा. All Rights Reserved.</p>
+    </div>
+</footer>
+    </body>
+</html>

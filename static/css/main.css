@@ -1,0 +1,374 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', serif;
+    position: relative;
+    color: white;
+    overflow-x: hidden;
+}
+
+.main-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/static/images/background.jpg") no-repeat center center/cover;
+    filter: opacity(0.4); 
+    z-index: -1;
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.content h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #d62e2e; 
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #430707; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #d62e2e;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg, 
+        transparent, 
+        rgba(255,255,255,0.3), 
+        transparent
+    );
+    transition: all 0.6s ease;
+}
+
+.button:hover {
+    background-color: #b52a2a;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(214, 46, 46, 0.7);
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(214, 46, 46, 0.5);
+}
+
+.sticky-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    padding: 15px 10%;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #4B4B4B; */
+    align-items: center;
+}
+
+.site-title a {
+    color: #d62e2e;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #4B4B4B;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    /* background-color: rgba(255,255,255,0.1); */
+    background-color: white;
+    color: #4B4B4B;
+}
+
+.search-button {
+    padding: 8px;
+    border: 1px solid #4B4B4B;
+    border-radius: 0 20px 20px 0;
+    background-color: #d62e2e;
+    color: white;
+    cursor: pointer;
+}
+
+.tell-tale-button, .subscribe-button, .more-stories {
+    padding: 8px 15px;
+    background-color: #d62e2e;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.tell-tale-button:hover, .subscribe-button:hover, .more-stories:hover {
+    background-color: #b52a2a;
+}
+.stories-title{
+    color: #4B4B4B;
+}
+.stories-section {
+    padding: 30px 10%;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.story-card {
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    max-width: 350px;
+}
+
+.story-card:hover {
+    transform: scale(1.05);
+}
+
+.story-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.story-content {
+    padding: 20px;
+    color: #4B4B4B;
+    text-align: center;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #d62e2e;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #b52a2a;
+}
+.newsletter-section {
+    background: #D9EDF7;
+    color:#4B4B4B ;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.newsletter-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #c0392b;
+}
+.site-footer {
+    color: #4B4B4B;
+    /* padding: 0px 10%; */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+}
+.footer-content h3{
+    color: #d62e2e;
+}
+.footer-section.about-us {
+    flex: 1;
+    padding-right: 50px;
+    text-align: left;
+}
+
+.footer-section.social-connect {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.social-icon {
+    color: #4B4B4B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 28px; /* Size of the icons */
+    color: #333;
+}
+
+.social-icon:hover {
+    color: #d62e2e;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.section-divider{
+    border-bottom: 1px solid #4B4B4B;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.main-folktale {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.main-folktale .details {
+    text-align: center;
+}
+
+.main-folktale h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.main-folktale .author-date {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.main-folktale .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-folktale .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.story {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .main-folktale h1 {
+        font-size: 2rem;
+    }
+}
